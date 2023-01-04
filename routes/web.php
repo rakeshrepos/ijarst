@@ -29,10 +29,12 @@ Route::get('/paper-submission','FrontendController@callForPaper');
 Route::post('/paper-submit','FrontendController@paperSubmit');
 Route::get('/fee','FrontendController@fee');
 Route::get('/downloads/{vol}','FrontendController@downloads');
+Route::get('/downloads/paper/{vol}/{slug}','FrontendController@showPaper');
 Route::get('/downloads/{vol}/{iss}','FrontendController@downloads_both');
 Route::post('/search','FrontendController@search');
 Route::get('/search/{type}/{item}','FrontendController@search_item');
 
+Route::get('/get-papers','FrontendController@getPapers');
 // Route::get('/admin', function () {
 //     return view('Admin.Dashboard.index');
 // });

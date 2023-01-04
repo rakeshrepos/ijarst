@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Session;
 use setAttribute;
 use DB;
-
+use Illuminate\Support\Str;
 class FrontendController extends Controller
 {
     /**
@@ -144,7 +144,35 @@ class FrontendController extends Controller
             return redirect('/paper-submission')->with('error', 'Sorry... Please Select Document File');
         }
     }
-    
+
+    public function getPapers(){
+        $papers = DB::table('approved_papers')->get();
+        foreach($papers as $paper){
+            $slug = $this->generateSlug($paper->title);
+            DB::table('approved_papers')->where('id',$paper->id)->update(['slug'=>$slug]);
+        }
+    }
+
+    public function generateSlug($title){
+        $slug=Str::slug($title);
+
+        if (DB::table('approved_papers')->where('slug',Str::slug($title))->exists()) {
+
+            $max = DB::table('approved_papers')->where('title','LIKE',$title)->value('title');
+            if(is_numeric($max[-1])) {
+                
+                return preg_replace_callback('/(\d+)$/', function($mathces) {
+                    return $mathces[1] + 1;
+                    
+                }, $max);
+
+            }
+            return "{$slug}-2";
+
+        }
+        return $slug;
+    }
+
     public function fee()
     {
         $news = News::OrderBy('id','DESC')->get();
@@ -366,7 +394,9 @@ class FrontendController extends Controller
         }
     }
 
-    public function showApprovedPaper($id){
-        return $id;
+    public function showPaper($vol,$slug){
+        $issue = DB::table('approved_papers')->distinct()->select('issue')->where('volume',$vol)->get();
+        $paper = DB::table('approved_papers')->where('slug',$slug)->first();
+        return view('Frontnew.downloadpaper',compact('issue','paper','vol'));
     }
 }

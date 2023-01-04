@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>{{Request::segment(2)}} Publications</h1>
+                <h1>Download Paper</h1>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
     <div class="col-sm-2">
-    @if($vol!='')
+    @if($paper!='')
     <ul class="list">
         @foreach ($issue as $item)
         <li><a href="{{url('downloads/'.$vol.'/'.$item->issue)}}">{{$item->issue}}</a></li>
@@ -25,45 +25,24 @@
     </div>
 
         <div class="col-sm-10">
-<table class="table table-bordered">
+            <p style="color: black;">{{$paper->title}}</p>
+            <div style="display: flex; gap: 100px; justify-items: center">
+                <div style="display: flex; gap:10px;">
+                    <p style="font-size: 20px; color:black;">Author:</p>
+                    <p style="font-size: 20px; color:black;">{{$paper->name}}</p>
+                </div>
+                <a href="{{url('public/uploads/paper/'.$paper->paper)}}" target="_blank" style="background-color: #aec62c; color:white; padding: 5px 50px; font-weight: bold;">
+                    DOWNLOAD ARTICLE
+                </a>
+            </div>
 
-      <thead>
-
-        <tr><td>Title</td><td>Page No</td><td>Download</td><td>Author</td></tr>
-
-      </thead>              
-
-      <tbody>
-        {{-- @foreach ($papers as $item)
-        <tr>
-        <td>{{$item->title}}<br/>
-          <span style="color:#336699;">Authors</span>: <span style="color:#d71a21;font-size:12px;">{{$item->author}}</span></td>
-          <td>{{$item->page_no}}</td>
-        <td><a target="_blank" href="{{url('public/uploads/paper/'.$item->paper)}}">Download</a></td>
-      </tr>                 
-        @endforeach --}}
-        @foreach ($papers as $item)
-
-        <tr>
-
-        <td><a href="/downloads/paper/{{$vol}}/{{$item->slug}}" style="color: black;">{{$item->title}}</a><br/>
-
-        <span style="color:#336699;">Authors</span>: <span style="color:#d71a21;font-size:12px;">{{$item->author}}</span></td>
-
-        <td style="width:60px">{{$item->page_no}}</td>
-
-        <td align="center"><a target="_blank" href="{{url('public/uploads/paper/'.$item->paper)}}"><img src="{{asset('frontend/img/download.png')}}" width="30" height="30"></a></td>
-        <td><img src="admin-panel/author/'.$aimg.'" width="61" height="75" class="img img-thumbnail"></td>
-        </tr>
-        @endforeach
-        
-
-        
-
-      </tbody>
-
-    </table>
-
+            <div style="width: 47rem; margin-top: 10px; border: 1px solid rgb(204, 204, 204);">
+                <div style="background: #aec62c; width: 47rem; padding: 2px; display: flex; justify-items: center; color:white; font-size: 25px;">
+                    <p>Volume & Issue</p>
+                </div>
+                <div style="padding: 4px;">
+                    <p style="color: black;">{{$paper->volume}},{{$paper->issue}}</p>
+                </div>
             </div>
         </div>
     </div>

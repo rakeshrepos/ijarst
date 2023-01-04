@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 use setAttribute;
 use DB;
+use Illuminate\Support\Str;
 
 class ApprovedpaperController extends Controller
 {
@@ -67,8 +68,8 @@ class ApprovedpaperController extends Controller
         {
             if($volume != '' && $issue != '')
             {
-                // , 'date'=>
-                $data = array('volume'=>$volume, 'issue'=>$issue, 'page_no'=>$request->page_number, 'author'=>$request->author_name, 'name'=>$request->name,'email'=>$request->email, 'mobile'=>$request->mobile, 'title'=>$request->paper_title, 'paper'=>$img_name);
+                $slug = $this->generateSlug($request->paper_title);
+                $data = array('volume'=>$volume, 'issue'=>$issue, 'page_no'=>$request->page_number, 'author'=>$request->author_name, 'name'=>$request->name,'email'=>$request->email, 'mobile'=>$request->mobile, 'title'=>$request->paper_title, 'paper'=>$img_name,'slug'=>$slug);
                 $insert = DB::table('approved_papers')->insert($data);
                 if($insert)
                 {
@@ -89,6 +90,26 @@ class ApprovedpaperController extends Controller
             return redirect('admin/approved-paper/create')->with('error', 'Sorry Please Select File');
         }
 
+    }
+
+    public function generateSlug($title){
+        $slug=Str::slug($title);
+
+        if (DB::table('approved_papers')->where('slug',Str::slug($title))->exists()) {
+
+            $max = DB::table('approved_papers')->where('title','LIKE',$title)->value('title');
+            if(is_numeric($max[-1])) {
+                
+                return preg_replace_callback('/(\d+)$/', function($mathces) {
+                    return $mathces[1] + 1;
+                    
+                }, $max);
+
+            }
+            return "{$slug}-2";
+
+        }
+        return $slug;
     }
 
     /**
