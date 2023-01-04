@@ -36,7 +36,7 @@
                 </a>
             </div>
 
-            <div style="width: 49rem; margin-top: 10px; border: 1px solid rgb(204, 204, 204);">
+            <div style="width: 49rem; margin-top: 60px; margin-bottom: 50px; border: 1px solid rgb(204, 204, 204);">
                 <div style="background: #aec62c; width: 49rem; padding: 2px; display: flex; justify-items: center; color:white; font-size: 25px;">
                     <p>Volume & Issue</p>
                 </div>
