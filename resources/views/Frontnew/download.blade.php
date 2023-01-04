@@ -46,7 +46,7 @@
 
         <tr>
 
-        <td><a href="/downloads/paper/{{$vol}}/{{$item->slug}}" style="color: black;">{{$item->title}}</a><br/>
+        <td><a href="/downloads/paper/{{$vol}}/{{$item->slug}}" target="_blank" style="color: black;">{{$item->title}}</a><br/>
 
         <span style="color:#336699;">Authors</span>: <span style="color:#d71a21;font-size:12px;">{{$item->author}}</span></td>
 

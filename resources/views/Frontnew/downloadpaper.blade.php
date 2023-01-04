@@ -1,5 +1,26 @@
 @include('Frontnew.header');
 
+<style>
+    .details-box{
+        display: flex; 
+        justify-content: space-between; 
+        justify-items: center
+    }
+
+    .volume{
+        width: 49rem;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .details-box {
+            display: block;
+        }
+
+        .volume{
+            width: 100vw;
+        }
+    }
+</style>
 <div class="section section-breadcrumbs" style="margin-top: 70px;">
     <div class="container">
         <div class="row">
@@ -26,18 +47,23 @@
 
         <div class="col-sm-10">
             <p style="color: black;">{{$paper->title}}</p>
-            <div style="display: flex; gap: 133px; justify-items: center">
-                <div style="display: flex; gap:10px;">
-                    <p style="font-size: 20px; color:black;">Author:</p>
-                    <p style="font-size: 20px; color:black;">{{$paper->name}}</p>
+            <div class="details-box">
+                <div>
+                    <div style="display: flex; gap:10px;">
+                        <p style="font-size: 20px; color:#336699;">Authors:</p>
+                        <p style="font-size: 20px; color:#d71a21;">{{$paper->author}}</p>
+                    </div>
+                    <p style="color:black">Page No: <span>{{$paper->page_no}}</span> </p>
                 </div>
-                <a href="{{url('public/uploads/paper/'.$paper->paper)}}" target="_blank" style="background-color: #aec62c; color:white; padding: 5px 50px; font-weight: bold;">
-                    DOWNLOAD ARTICLE
-                </a>
+                <div>
+                    <a href="{{url('public/uploads/paper/'.$paper->paper)}}" target="_blank" style="background-color: #aec62c; color:white; padding: 10px 50px; font-weight: bold;">
+                        DOWNLOAD ARTICLE
+                    </a>
+                </div>
             </div>
 
-            <div style="width: 49rem; margin-top: 60px; margin-bottom: 50px; border: 1px solid rgb(204, 204, 204);">
-                <div style="background: #aec62c; width: 49rem; padding: 2px; display: flex; justify-items: center; color:white; font-size: 25px;">
+            <div class="volume" style="margin-top: 60px; margin-bottom: 50px; border: 1px solid rgb(204, 204, 204);">
+                <div class="volume" style="background: #aec62c; padding: 2px; display: flex; justify-items: center; color:white; font-size: 25px;">
                     <p>Volume & Issue</p>
                 </div>
                 <div style="padding: 4px;">
