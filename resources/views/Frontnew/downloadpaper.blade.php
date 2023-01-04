@@ -26,7 +26,7 @@
 
         <div class="col-sm-10">
             <p style="color: black;">{{$paper->title}}</p>
-            <div style="display: flex; gap: 100px; justify-items: center">
+            <div style="display: flex; gap: 108px; justify-items: center">
                 <div style="display: flex; gap:10px;">
                     <p style="font-size: 20px; color:black;">Author:</p>
                     <p style="font-size: 20px; color:black;">{{$paper->name}}</p>
@@ -36,8 +36,8 @@
                 </a>
             </div>
 
-            <div style="width: 47rem; margin-top: 10px; border: 1px solid rgb(204, 204, 204);">
-                <div style="background: #aec62c; width: 47rem; padding: 2px; display: flex; justify-items: center; color:white; font-size: 25px;">
+            <div style="width: 49rem; margin-top: 10px; border: 1px solid rgb(204, 204, 204);">
+                <div style="background: #aec62c; width: 49rem; padding: 2px; display: flex; justify-items: center; color:white; font-size: 25px;">
                     <p>Volume & Issue</p>
                 </div>
                 <div style="padding: 4px;">
