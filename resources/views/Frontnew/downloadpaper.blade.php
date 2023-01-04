@@ -26,7 +26,7 @@
 
         <div class="col-sm-10">
             <p style="color: black;">{{$paper->title}}</p>
-            <div style="display: flex; gap: 108px; justify-items: center">
+            <div style="display: flex; gap: 133px; justify-items: center">
                 <div style="display: flex; gap:10px;">
                     <p style="font-size: 20px; color:black;">Author:</p>
                     <p style="font-size: 20px; color:black;">{{$paper->name}}</p>
