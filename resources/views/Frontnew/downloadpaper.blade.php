@@ -46,7 +46,7 @@
     </div>
 
         <div class="col-sm-10">
-            <p style="color: black;">{{$paper->title}}</p>
+            <p style="color: black; font-size: 24px;">{{$paper->title}}</p>
             <div class="details-box">
                 <div>
                     <div style="display: flex; gap:10px;">
