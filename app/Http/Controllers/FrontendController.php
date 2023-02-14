@@ -397,6 +397,7 @@ class FrontendController extends Controller
     public function showPaper($vol,$slug){
         $issue = DB::table('approved_papers')->distinct()->select('issue')->where('volume',$vol)->get();
         $paper = DB::table('approved_papers')->where('slug',$slug)->first();
+
         return view('Frontnew.downloadpaper',compact('issue','paper','vol'));
     }
 }

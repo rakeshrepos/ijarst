@@ -48,7 +48,7 @@
 
         <td><a href="/downloads/paper/{{$vol}}/{{$item->slug}}" target="_blank" style="color: black;">{{$item->title}}</a><br/>
 
-        <span style="color:#336699;">Authors</span>: <span style="color:#d71a21;font-size:12px;">{{$item->author}}</span></td>
+   php a     <span style="color:#336699;">Authors</span>: <span style="color:#d71a21;font-size:12px;">{{$item->author}}</span></td>
 
         <td style="width:60px">{{$item->page_no}}</td>
 
@@ -100,11 +100,11 @@ Velachery, Chennai, Tamil Nadu,<br/>
 <!-- Javascripts -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="js/bootstrap.min.js"></script>
+<script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
 
 <!-- Scrolling Nav JavaScript -->
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/scrolling-nav.js"></script>		
+    <script src="{{asset('frontend/js/jquery.easing.min.js')}}"></script>
+    <script src="{{asset('frontend/js/scrolling-nav.js')}}"></script>		
 
 </body>
 </html>

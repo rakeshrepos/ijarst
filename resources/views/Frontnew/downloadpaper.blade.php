@@ -35,7 +35,7 @@
     <div class="container">
         <div class="row">
     <div class="col-sm-2">
-    @if($paper!='')
+    @if($issue!='')
     <ul class="list">
         @foreach ($issue as $item)
         <li><a href="{{url('downloads/'.$vol.'/'.$item->issue)}}">{{$item->issue}}</a></li>
@@ -44,19 +44,19 @@
     @endif
 
     </div>
-
+        @if($paper!=null)
         <div class="col-sm-10">
             <p style="color: black; font-size: 24px;">{{$paper->title}}</p>
             <div class="details-box">
                 <div>
                     <div style="display: flex; gap:10px;">
-                        <p style="font-size: 20px; color:#336699;">Authors:</p>
-                        <p style="font-size: 20px; color:#d71a21;">{{$paper->author}}</p>
+                        <p style="font-size: 16px; color:#336699;">Authors:</p>
+                        <p style="font-size: 14px; color:#d71a21;">{{$paper->author}}</p>
                     </div>
                     <p style="color:black">Page No: <span>{{$paper->page_no}}</span> </p>
                 </div>
                 <div>
-                    <a href="{{url('public/uploads/paper/'.$paper->paper)}}" target="_blank" style="background-color: #aec62c; color:white; padding: 10px 50px; font-weight: bold;">
+                    <a href="{{url('public/uploads/paper/'.$paper->paper)}}" target="_blank" style="background-color: #aec62c; color:white; padding: 10px 10px; font-weight: bold;">
                         DOWNLOAD ARTICLE
                     </a>
                 </div>
@@ -71,6 +71,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 </div>
 

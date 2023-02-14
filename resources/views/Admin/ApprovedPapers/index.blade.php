@@ -83,6 +83,7 @@
                                                 <th>Mobile</th>
                                                 <th>Date</th>
                                                 <th>Download</th>
+                                                <th>Edit</th>
                                                 <th>Delete</th>
                                             </tr>
                                         </thead>
@@ -98,6 +99,7 @@
                                                 <th>Mobile</th>
                                                 <th>Date</th>
                                                 <th>Download</th>
+                                                <th>Edit</th>
                                                 <th>Delete</th>
                                             </tr>
                                         </tfoot>
@@ -118,6 +120,7 @@
                                                 <td>{{$val->date }}</td>
                                                
                                             <td><a target="_blank" href="{{url('public/uploads/paper/'.$val->paper)}}"><button type="submit" class="btn waves-effect waves-light btn-outline-info"><i class="mdi mdi-download"></i></button></a></td>
+                                            <td><a target="_blank" href="{{url('admin/approved-paper/'.$val->id.'/edit')}}">Edit</a></td>
                                                 <td>
                                                     <form action="{{url('admin/paper/'.$val->id)}}" method="post">
                                                         {{-- {{ method_field('DELETE') }} --}}

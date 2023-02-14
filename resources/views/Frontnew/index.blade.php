@@ -15,7 +15,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="{{url('/')}}">Home</a></li>
                 <li><a href="{{url('/review-process')}}">Review Process</a></li>
-                <li><a href="#">Submission</a></li>
+                <li><a href="{{url('/paper-submission')}}">Submission</a></li>
                 <li><a href="{{url('/eboard')}}">E Board</a></li>
                 <li><a href="{{url('/join-e-board')}}">Join E-Board</a></li>
                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Archives

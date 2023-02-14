@@ -50,6 +50,8 @@ Route::prefix('admin')->group(function(){
     Route::post('paper/{id}','PaperController@destroy');
     Route::get('approved-paper','ApprovedpaperController@index');
     Route::get('approved-paper/create','ApprovedpaperController@create');
+    Route::get('approved-paper/{id}/edit','ApprovedpaperController@edit');
+    Route::post('approved-paper/{id}/updatenew','ApprovedpaperController@updatenew');
     Route::post('approved-paper','ApprovedpaperController@store');
     Route::get('profile','Adminprofile@index');
     Route::post('profile/{id}','Adminprofile@update');
